@@ -18,3 +18,5 @@ def list_view(request):
 def detail_view(request, post_id):  
     post = Posts.objects.get(id=post_id)
     return render(request, 'posts/detail_view.html', context={'post': post})
+
+

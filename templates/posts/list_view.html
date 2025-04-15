@@ -5,9 +5,15 @@
 {% block content %}
 {% for post in posts%}
 <div class="card" style="width: 18rem;">
+  {% if post.image %}
+    <img src="{{post.image.url}}" alt="grege">
+  {% else %}
+    <img src="/static/placeholder.svg" alt="dwqdwq">
+    {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.content}}</p>
+    <a href="/posts/{{post.id}}" class="card-link">Go to post</a>
 </div>
 {% endfor %}
 {% endblock %}
