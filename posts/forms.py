@@ -1,5 +1,5 @@
 from django import forms
-from posts.models import Category, Tag
+from posts.models import Category, Tag, Posts
 
 
 class PostForm(forms.Form):
@@ -25,3 +25,11 @@ class PostForm(forms.Form):
         
         if title and title.lower() == 'python':
             raise forms.ValidationError(message='title cant be equal to python')
+        
+
+
+class PostForm2(forms.ModelForm):
+    
+    class Meta:
+        model = Posts
+        fields = ['title', 'content', 'category', 'tags']
