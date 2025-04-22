@@ -46,4 +46,4 @@ def login_view(request):
 @login_required(login_url='/login') 
 def logout_view(request):
     logout(request)
-    redirect('/login/')
+    return redirect('/login/')
