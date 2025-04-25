@@ -33,3 +33,25 @@ class PostForm2(forms.ModelForm):
     class Meta:
         model = Posts
         fields = ['title', 'content', 'category', 'tags']
+
+
+
+class SearchForm(forms.Form):
+    search_q = forms.CharField(required=False)
+    category_id = forms.ModelChoiceField(queryset=Category.objects.all(), required=False)
+
+
+    orderings = (
+        ('title', 'По названию'),
+        ('-title', 'По названию в обратном порядке'),
+        ('rate', 'По рейтингу'),
+        ('-rate', 'По рейтингу в обратном порядке'),
+        ('created_at', 'По дате создания'),
+        ('created_at', 'По дате создание в обратном порядке'),
+        ('updated_at', 'По дате обновления'),
+        ('-updated_at', 'По дате обновления в обратном порядке'),
+        (None, None),
+    )
+
+    ordering = forms.ChoiceField(choices=orderings, required=False )
+    
