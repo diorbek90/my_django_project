@@ -32,7 +32,7 @@ class PostForm2(forms.ModelForm):
     
     class Meta:
         model = Posts
-        fields = ['title', 'content', 'category', 'tags']
+        fields = ['image', 'title', 'content', 'category', 'tags']
 
 
 

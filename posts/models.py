@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -27,6 +28,7 @@ class Posts(models.Model):
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     tags = models.ManyToManyField(Tag)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
 
     def __str__(self):
